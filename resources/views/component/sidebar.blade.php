@@ -15,7 +15,7 @@
                         data-feather="user"></i><span>User</span></a>
             </li>
             <li class="dropdown {{ Request::path() === 'lomba' ? 'active' : '' }}"><a class="nav-link" href="/lomba"><i
-                        data-feather="hard-drive"></i><span>User</span></a>
+                        data-feather="hard-drive"></i><span>Lomba</span></a>
             </li>
         </ul>
     </aside>

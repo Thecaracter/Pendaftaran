@@ -39,10 +39,11 @@ Route::get('/dashboard', function () {
 })->middleware('isLogin');
 // User route
 Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('isLogin');
-Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('isLogin');
 Route::post('/user', [UserController::class, 'create'])->name('user.create')->middleware('isLogin');
 Route::post('/user/{id}', [UserController::class, 'update'])->name('user.update')->middleware('isLogin');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('isLogin');
 
 // Lomba route
 Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index')->middleware('isLogin');
 Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create')->middleware('isLogin');
+Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy')->middleware('isLogin');

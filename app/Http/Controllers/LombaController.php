@@ -39,12 +39,12 @@ class LombaController extends Controller
             }
 
             // Mengunggah dan menyimpan file foto
-            // Mengunggah dan menyimpan file foto
             if ($request->hasFile('foto')) {
                 $foto = $request->file('foto');
-                $path = $foto->storePublicly('foto', 'public'); // Simpan di direktori public/fotos
+                $fileName = time() . '.' . $foto->getClientOriginalExtension();
+                $foto->move(public_path('foto'), $fileName);
+                $path = 'foto/' . $fileName;
             }
-
 
             // Membuat instance Lomba
             $lomba = new Lomba;
@@ -85,6 +85,7 @@ class LombaController extends Controller
     }
 
 
+
     /**
      * Store a newly created resource in storage.
      */
@@ -122,6 +123,15 @@ class LombaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Lomba::findOrFail($id);
+        $user->delete();
+
+        $notification = [
+            'title' => 'Selamat!',
+            'text' => 'Data pengguna berhasil dihapus',
+            'type' => 'success',
+        ];
+
+        return redirect()->route('lomba.index')->with('notification', $notification)->withInput();
     }
 }

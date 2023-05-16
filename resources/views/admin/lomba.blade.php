@@ -53,12 +53,32 @@
                                                         <button data-toggle="modal"
                                                             data-target="#editUserModal{{ $lmb->id }}" type="button"
                                                             class="btn btn-info">Edit</button>
-                                                        <form method="post" action="{{ route('user.destroy', $lmb->id) }}"
+                                                        <form id="deleteForm-{{ $lmb->id }}" method="post"
+                                                            action="{{ route('lomba.destroy', $lmb->id) }}"
                                                             style="display:inline">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                onclick="confirmDelete('{{ $lmb->id }}')">Delete</button>
                                                         </form>
+                                                        <script>
+                                                            function confirmDelete(userId) {
+                                                                Swal.fire({
+                                                                    title: 'Yakin Mo Ngapus Bro?',
+                                                                    text: "Nggak bakal bisa balik lo",
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    cancelButtonColor: '#d33',
+                                                                    confirmButtonText: 'Yes, delete it!'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        // Submit form untuk menghapus data
+                                                                        document.getElementById('deleteForm-' + userId).submit();
+                                                                    }
+                                                                });
+                                                            }
+                                                        </script>
                                                     </span>
                                                 </td>
                                         @endforeach
@@ -181,7 +201,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="text-center">
-                                <img src="{{ asset('storage/' . $lmb->foto) }}" alt="Lomba Foto" class="img-fluid">
+                                <img src="{{ asset($lmb->foto) }}" alt="Lomba Foto" class="img-fluid">
 
                             </div>
                         </div>
