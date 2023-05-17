@@ -26,11 +26,12 @@ class LombaController extends Controller
         try {
             // Validasi input
             $validator = Validator::make($request->all(), [
-                'nama' => 'required|string',
+                'nama' => 'required',
                 'tanggal_mulai' => 'required|date',
-                'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+                'tanggal_selesai' => 'required|date',
                 'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'deskripsi' => 'required|string',
+                'harga' => 'required|integer',
+                'deskripsi' => 'required',
             ]);
 
             // Jika validasi gagal, lempar ValidationException
@@ -52,6 +53,7 @@ class LombaController extends Controller
             $lomba->tanggal_mulai = $request->input('tanggal_mulai');
             $lomba->tanggal_selesai = $request->input('tanggal_selesai');
             $lomba->foto = $path ?? null; // Simpan path file foto jika ada, jika tidak, isi dengan null
+            $lomba->harga = $request->input('harga');
             $lomba->deskripsi = $request->input('deskripsi');
 
             // Menyimpan data Lomba
@@ -115,7 +117,9 @@ class LombaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+
+
     }
 
     /**

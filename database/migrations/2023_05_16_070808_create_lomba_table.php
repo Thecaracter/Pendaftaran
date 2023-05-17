@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
             $table->string('foto');
+            $table->integer('harga');
             $table->text('deskripsi');
             $table->timestamps();
         });

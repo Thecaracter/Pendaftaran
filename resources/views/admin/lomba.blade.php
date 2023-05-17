@@ -34,6 +34,8 @@
                                             <th class="text-center">Tanggal Mulai</th>
                                             <th class="text-center">Tanggal Selesai</th>
                                             <th class="text-center">Foto</th>
+                                            <th class="text-center">Harga</th>
+                                            <th class="text-center">Deskripsi</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -48,6 +50,8 @@
                                                 <td class="align-middle text-center"> <button data-toggle="modal"
                                                         data-target="#detailModal{{ $lmb->id }}" type="button"
                                                         class="btn btn-primary">Detail</button></td>
+                                                <td class="text-center">{{ $lmb->harga }}</td>
+                                                <td class="text-center">{{ $lmb->deskripsi }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <button data-toggle="modal"
@@ -122,6 +126,11 @@
                                 <input type="file" class="form-control" id="foto" name="foto" required
                                     accept="image/*">
                             </div>
+                            <div class="mb-3">
+                                <label for="harga" class="form-label">Harga</label>
+                                <input type="text" class="form-control" id="harga" name="harga" required>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
                                 <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
