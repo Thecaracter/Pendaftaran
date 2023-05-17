@@ -115,12 +115,82 @@ class LombaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
+        try {
+            // Validasi input
+            $validator = Validator::make($request->all(), [
+                'nama' => 'required',
+                'tanggal_mulai' => 'required|date',
+                'tanggal_selesai' => 'required|date',
+                'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
+                'harga' => 'required|integer',
+                'deskripsi' => 'required',
+            ]);
 
+            // Jika validasi gagal, lempar ValidationException
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
 
+            // Mencari data Lomba berdasarkan ID
+            $lomba = Lomba::findOrFail($id);
 
+            // Mengunggah dan menyimpan file foto jika ada perubahan
+            if ($request->hasFile('foto')) {
+                $foto = $request->file('foto');
+                $fileName = time() . '.' . $foto->getClientOriginalExtension();
+                $foto->move(public_path('foto'), $fileName);
+                $path = 'foto/' . $fileName;
+
+                // Hapus file foto lama jika ada
+                if ($lomba->foto) {
+                    $oldFilePath = public_path($lomba->foto);
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $lomba->foto = $path;
+            }
+
+            // Memperbarui data Lomba
+            $lomba->nama = $request->input('nama');
+            $lomba->tanggal_mulai = $request->input('tanggal_mulai');
+            $lomba->tanggal_selesai = $request->input('tanggal_selesai');
+            $lomba->harga = $request->input('harga');
+            $lomba->deskripsi = $request->input('deskripsi');
+
+            // Menyimpan perubahan pada data Lomba
+            $lomba->save();
+
+            // Membuat notifikasi
+            $notification = [
+                'title' => 'Berhasil!',
+                'text' => 'Data Lomba berhasil diperbarui',
+                'type' => 'success',
+            ];
+
+            // Mengarahkan pengguna ke halaman index dengan notifikasi
+            return redirect()->route('lomba.index')->with('notification', $notification);
+        } catch (ValidationException $e) {
+            $errors = $e->validator->getMessageBag()->toArray();
+
+            // Mengarahkan pengguna kembali ke halaman sebelumnya dengan kesalahan validasi
+            return redirect()->back()->withErrors($errors)->withInput();
+        } catch (\Exception $e) {
+            // Menangani exception lainnya
+            $notification = [
+                'title' => 'Oops!',
+                'text' => 'Terjadi kesalahan, silakan coba lagi!',
+                'type' => 'error',
+            ];
+
+            // Mengarahkan pengguna ke halaman index dengan notifikasi
+            return redirect()->route('lomba.index')->with('notification', $notification);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.

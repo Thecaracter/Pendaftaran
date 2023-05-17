@@ -146,57 +146,58 @@
         </div>
         <!-- Modal Edit Pengguna -->
         @foreach ($lomba as $lmb)
-            <div class="modal fade" id="editUserModal{{ $lmb->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="editUserModalLabel{{ $lmb->id }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade" id="editUserModal{{ $lmb->id }}" tabindex="-1"
+                aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editUserModalLabel{{ $lmb->id }}">Edit Pengguna</h5>
+                            <h5 class="modal-title" id="createModalLabel">Tambah Lomba</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form id="editUserForm{{ $lmb->id }}" action="{{ route('user.update', $lmb->id) }}"
-                            method="POST">
+                        <form action="{{ route('lomba.create') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('POST')
                             <div class="modal-body">
-                                <!-- Form input pengguna -->
-                                <div class="form-group">
-                                    <label for="editUsername{{ $lmb->id }}">Username:</label>
-                                    <input type="text" class="form-control" id="editUsername{{ $lmb->id }}"
-                                        name="username" placeholder="Username" value="{{ $lmb->username }}" required>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Lomba</label>
+                                    <input type="text" class="form-control" id="nama" name="nama"
+                                        value="{{ old('nama') }}" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="editEmail{{ $lmb->id }}">Email:</label>
-                                    <input type="email" class="form-control" id="editEmail{{ $lmb->id }}"
-                                        name="email" placeholder="Email" value="{{ $lmb->email }}" required>
+                                <div class="mb-3">
+                                    <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
+                                    <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai"
+                                        value="{{ old('tanggal_mulai') }}" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="editRole{{ $lmb->id }}">Role:</label>
-                                    <select class="form-control" id="editRole{{ $lmb->id }}" name="role"
-                                        required>
-                                        <option value="admin" {{ $lmb->role == 'admin' ? 'selected' : '' }}>Admin
-                                        </option>
-                                        <option value="user" {{ $lmb->role == 'user' ? 'selected' : '' }}>User
-                                        </option>
-                                    </select>
+                                <div class="mb-3">
+                                    <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
+                                    <input type="date" class="form-control" id="tanggal_selesai"
+                                        name="tanggal_selesai" value="{{ old('tanggal_selesai') }}" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="editPassword{{ $lmb->id }}">Password:</label>
-                                    <input type="password" class="form-control" id="editPassword{{ $lmb->id }}"
-                                        name="password" placeholder="Password">
+                                <div class="mb-3">
+                                    <label for="foto" class="form-label">Foto Lomba</label>
+                                    <input type="file" class="form-control" id="foto" name="foto" required
+                                        accept="image/*">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="harga" class="form-label">Harga</label>
+                                    <input type="text" class="form-control" id="harga" name="harga"
+                                        value="{{ old('harga') }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ old('deskripsi') }}</textarea>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
-
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
             <!-- Modal for Detail -->
             <div class="modal fade" id="detailModal{{ $lmb->id }}" tabindex="-1" role="dialog"
                 aria-labelledby="detailModalLabel{{ $lmb->id }}" aria-hidden="true">
