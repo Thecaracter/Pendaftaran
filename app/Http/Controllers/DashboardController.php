@@ -13,9 +13,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $usercount = User::count();
         $lombaCount = Lomba::count();
-        return view('admin.dashboard', compact('users', 'lombaCount'));
+        return view('admin.dashboard', compact('usercount', 'lombaCount'));
 
 
     }

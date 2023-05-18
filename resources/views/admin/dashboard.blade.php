@@ -13,7 +13,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                                         <div class="card-content">
                                             <h5 class="font-22">Jumlah User</h5>
-                                            <h1 class="mb-3 font-35 ">{{ $users->count() }}</h1>
+                                            <h1 class="mb-3 font-35 ">{{ $usercount }}</h1>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
