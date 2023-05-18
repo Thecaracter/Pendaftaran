@@ -156,37 +156,38 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('lomba.create') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('lomba.update', ['id' => $lmb->id]) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Lomba</label>
                                     <input type="text" class="form-control" id="nama" name="nama"
-                                        value="{{ old('nama') }}" required>
+                                        value="{{ $lmb->nama }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
                                     <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai"
-                                        value="{{ old('tanggal_mulai') }}" required>
+                                        value="{{ $lmb->tanggal_mulai }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
                                     <input type="date" class="form-control" id="tanggal_selesai"
-                                        name="tanggal_selesai" value="{{ old('tanggal_selesai') }}" required>
+                                        name="tanggal_selesai" value="{{ $lmb->tanggal_selesai }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="foto" class="form-label">Foto Lomba</label>
-                                    <input type="file" class="form-control" id="foto" name="foto" required
+                                    <input type="file" class="form-control" id="foto" name="foto"
                                         accept="image/*">
                                 </div>
                                 <div class="mb-3">
                                     <label for="harga" class="form-label">Harga</label>
                                     <input type="text" class="form-control" id="harga" name="harga"
-                                        value="{{ old('harga') }}" required>
+                                        value="{{ $lmb->harga }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="deskripsi" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ old('deskripsi') }}</textarea>
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ $lmb->deskripsi }}</textarea>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -197,7 +198,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal for Detail -->
             <div class="modal fade" id="detailModal{{ $lmb->id }}" tabindex="-1" role="dialog"
                 aria-labelledby="detailModalLabel{{ $lmb->id }}" aria-hidden="true">

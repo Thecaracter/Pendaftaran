@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\RegisterController;
@@ -34,9 +35,9 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //dashboard route
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware('isLogin');
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware('isLogin');
 // User route
 Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('isLogin');
 Route::post('/user', [UserController::class, 'create'])->name('user.create')->middleware('isLogin');
@@ -46,4 +47,8 @@ Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.dest
 // Lomba route
 Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index')->middleware('isLogin');
 Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create')->middleware('isLogin');
+Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update')->middleware('isLogin');
 Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy')->middleware('isLogin');
+
+// Dashboar route
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

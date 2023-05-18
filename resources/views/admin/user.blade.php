@@ -44,11 +44,12 @@
                                                 <td class="text-center">{{ ++$no }}</td>
                                                 <td class="text-center">{{ $item->username }}</td>
                                                 <td class="text-center">{{ $item->email }}</td>
-                                                {{-- <td>{{ $item->password }}</td> --}}
                                                 <td class="align-middle text-center">
-
-                                                    <span class="badge badge-success px-2">Sudah</span>
-
+                                                    @if ($item->status == 2)
+                                                        <span class="badge badge-success px-2">Sudah</span>
+                                                    @elseif ($item->status == 1)
+                                                        <span class="badge badge-danger px-2">belum daftar</span>
+                                                    @endif
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     <span>
