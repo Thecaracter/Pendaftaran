@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 
@@ -111,9 +113,57 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function updateProfile(Request $request)
     {
-        //
+        // Validasi input form
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|email',
+            'password' => 'nullable|string|min:6|confirmed',
+            'alamat' => 'required|string|max:255',
+            'no_telp' => 'required|string|max:20',
+            'foto' => 'nullable|image|max:2048', // Ubah sesuai kebutuhan
+        ]);
+
+        // Ambil user yang sedang login
+        $user = Auth::user();
+
+        // Update data username dan email
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+        // Update password jika diisi
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
+        // Update alamat dan nomor telepon
+        $user->alamat = $request->alamat;
+        $user->no_telp = $request->no_telp;
+
+        // Upload foto jika ada
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $fileName = time() . '.' . $foto->getClientOriginalExtension();
+            $foto->move(public_path('foto'), $fileName);
+            $path = 'foto/' . $fileName;
+
+            // Hapus file foto lama jika ada
+            if ($user->foto) {
+                $oldFilePath = public_path($user->foto);
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+
+            $user->foto = $path;
+        }
+
+        // Simpan perubahan
+        $user->save();
+
+        // Redirect ke halaman profil
+        return redirect()->route('/profile')->with('success', 'Profil berhasil diperbarui.');
     }
 
     /**

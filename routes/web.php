@@ -35,10 +35,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 //logout route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-//dashboard route
-// Route::get('/dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware('isLogin');
 // User route
 Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('isLogin');
 Route::post('/user', [UserController::class, 'create'])->name('user.create')->middleware('isLogin');
@@ -54,12 +50,21 @@ Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.d
 // Dashboar route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('isLogin');
 
+// profile route
+Route::get('/profile', function () {
+    return view('profile.profile');
+});
+
+Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+
+// Forgot Password route
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
 
 Route::post('/forgot-password', [ForgotPassword::class, 'index'])->middleware('guest')->name('password.email');
 
+// Reset Password route
 Route::get('/reset-password/{token}', function (string $token) {
     return view('auth.reset-password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
