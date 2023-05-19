@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\RegisterController;
@@ -51,4 +52,16 @@ Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.upda
 Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy')->middleware('isLogin');
 
 // Dashboar route
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('isLogin');
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', [ForgotPassword::class, 'index'])->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function (string $token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', [ForgotPassword::class, 'reset'])->middleware('guest')->name('password.update');
