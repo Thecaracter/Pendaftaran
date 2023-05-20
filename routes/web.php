@@ -52,10 +52,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // profile route
 Route::get('/profile', function () {
-    return view('profile.profile');
+    return view('profile.profile')->middleware('isLogin');
 });
 
-Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update')->middleware('isLogin');
 
 // Forgot Password route
 Route::get('/forgot-password', function () {
