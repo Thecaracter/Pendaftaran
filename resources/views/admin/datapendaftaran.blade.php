@@ -59,7 +59,13 @@
                                                 <td class="text-center">{{ $pen->asal_sekolah }}</td>
                                                 <td class="text-center">{{ $pen->nama }}</td>
                                                 <td class="text-center">{{ $pen->nisn }}</td>
-                                                <td class="text-center">{{ $pen->status_pembayaran }}</td>
+                                                <td class="text-center">
+                                                    @if ($pen->status_pembayaran == '1')
+                                                        <span class="badge badge-danger">Belum Bayar</span>
+                                                    @else
+                                                        <span class="badge badge-success">Sudah Bayar</span>
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">{{ $pen->tanggal_pendaftaran }}</td>
                                                 {{-- <td class="align-middle text-center">
                                                     <span>

@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('alamat');
             $table->string('asal_sekolah');
             $table->string('nisn');
-            $table->enum('status_pembayaran', ['1', '2']);
+            $table->enum('status_pembayaran', ['1', '2'])->default('1');
             $table->dateTime('tanggal_pendaftaran');
             $table->timestamps();
         });
