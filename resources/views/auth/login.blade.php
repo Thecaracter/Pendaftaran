@@ -65,4 +65,16 @@
             </div>
         </div>
     </div>
+    @if (session('notification'))
+        <script>
+            $(document).ready(function() {
+                const {
+                    title,
+                    text,
+                    type
+                } = @json(session('notification'));
+                Swal.fire(title, text, type);
+            });
+        </script>
+    @endif
 @endsection

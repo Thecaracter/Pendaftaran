@@ -1,65 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.forgotapp')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        html,
-        body {
-            height: 100%;
-        }
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+@section('title', 'Lupa Password')
 
-        .form-container {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-        }
-    </style>
-    <title>Lupa Password</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="form-container">
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+@section('content')
+    <section class="section">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="card card-primary">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <h5>{{ $error }}</h5>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if (session()->has('status'))
+                            <div class="alert alert-success">
+                                <li>Silahkan Check Email Untuk Mereset Password</li>
+                            </div>
+                        @endif
+                        <div class="card-header">
+                            <h4>Lupa Password</h4>
                         </div>
-                    @endif
-                    @if (session()->has('status'))
-                        <div class="alert alert-succes">
-                            {{ session()->get('status') }}
+                        <div class="card-body">
+                            <p class="text-muted">Silahkan Masukan Email yang Terdaftar</p>
+                            <form action="{{ route('password.email') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                        required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                        Lupa Password
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    @endif
-                    <h2 class="text-center my-4">Lupa Password</h2>
-                    <form action="{{ route('password.email') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="email">Alamat email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter email">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-</html>
+    </section>
+@endsection
