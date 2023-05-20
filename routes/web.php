@@ -50,6 +50,14 @@ Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.d
 // Dashboar route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('isLogin');
 
+// Pendaftaran route
+Route::get('/data-pendaftaran', function () {
+    return view('admin.datapendaftaran');
+});
+
+
+
+
 // profile route
 Route::get('/profile', function () {
     return view('profile.profile');

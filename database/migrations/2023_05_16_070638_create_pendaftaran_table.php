@@ -13,7 +13,13 @@ return new class extends Migration {
         Schema::create('pendaftaran', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_lomba');
-            $table->unsignedBigInteger('id_users');
+            $table->string('nama');
+            $table->string('email');
+            $table->string('no_hp');
+            $table->string('alamat');
+            $table->string('asal_sekolah');
+            $table->string('nisn');
+            $table->enum('status_pembayaran', ['1', '2']);
             $table->dateTime('tanggal_pendaftaran');
             $table->timestamps();
         });
