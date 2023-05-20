@@ -47,8 +47,8 @@
                                                 <td class="text-center">{{ ++$no }}</td>
                                                 <td class="text-center">{{ $item->username }}</td>
                                                 <td class="text-center">{{ $item->email }}</td>
-                                                <th class="text-center">{{ $item->alamat }}</th>
-                                                <th class="text-center">{{ $item->no_hp }}</th>
+                                                <td class="text-center">{{ $item->alamat }}</td>
+                                                <td class="text-center">{{ $item->no_hp }}</td>
                                                 <th class="text-center">
                                                     <img src="{{ $item->foto }}" alt=""
                                                         style="max-width: 100px; max-height: 100px;">
@@ -74,7 +74,6 @@
                                                                 onclick="confirmDelete('{{ $item->id }}')">Delete</button>
                                                         </form>
 
-
                                                         <script>
                                                             function confirmDelete(userId) {
                                                                 Swal.fire({
@@ -84,7 +83,7 @@
                                                                     showCancelButton: true,
                                                                     confirmButtonColor: '#3085d6',
                                                                     cancelButtonColor: '#d33',
-                                                                    confirmButtonText: 'Yes, delete it!'
+                                                                    confirmButtonText: 'Ya, saya yakin!'
                                                                 }).then((result) => {
                                                                     if (result.isConfirmed) {
                                                                         // Submit form untuk menghapus data
@@ -93,7 +92,6 @@
                                                                 });
                                                             }
                                                         </script>
-
                                                     </span>
                                                 </td>
                                         @endforeach

@@ -52,7 +52,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // profile route
 Route::get('/profile', function () {
-    return view('profile.profile')->middleware('isLogin');
+    return view('profile.profile');
 });
 
 Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update')->middleware('isLogin');

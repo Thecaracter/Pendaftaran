@@ -50,7 +50,8 @@
                                                 <td class="align-middle text-center"> <button data-toggle="modal"
                                                         data-target="#detailModal{{ $lmb->id }}" type="button"
                                                         class="btn btn-primary">Detail</button></td>
-                                                <td class="text-center">{{ $lmb->harga }}</td>
+                                                <td class="text-center">
+                                                    {{ 'Rp ' . number_format($lmb->harga, 0, ',', '.') }}</td>
                                                 <td class="text-center">{{ $lmb->deskripsi }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>

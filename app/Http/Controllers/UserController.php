@@ -269,6 +269,15 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
+
+        // Menghapus file foto jika ada
+        if ($user->foto) {
+            $oldFilePath = public_path($user->foto);
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath);
+            }
+        }
+
         $user->delete();
 
         $notification = [
@@ -279,4 +288,5 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->with('notification', $notification)->withInput();
     }
+
 }

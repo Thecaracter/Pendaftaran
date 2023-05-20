@@ -17,6 +17,10 @@
             <li class="dropdown {{ Request::path() === 'lomba' ? 'active' : '' }}"><a class="nav-link" href="/lomba"><i
                         data-feather="hard-drive"></i><span>Lomba</span></a>
             </li>
+            <li class="menu-header">User Lomba</li>
+            <li class="dropdown {{ Request::path() === 'Pendaftaran' ? 'active' : '' }}"><a class="nav-link"
+                    href="/pendaftaran"><i data-feather="clipboard"></i><span>Pendaftaran</span></a>
+            </li>
         </ul>
     </aside>
 </div>
