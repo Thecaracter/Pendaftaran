@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
@@ -51,9 +52,7 @@ Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.d
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('isLogin');
 
 // Pendaftaran route
-Route::get('/data-pendaftaran', function () {
-    return view('admin.datapendaftaran');
-});
+Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index')->middleware('isLogin');
 
 
 
