@@ -49,7 +49,10 @@
                                                 <td class="text-center">{{ $item->email }}</td>
                                                 <th class="text-center">{{ $item->alamat }}</th>
                                                 <th class="text-center">{{ $item->no_hp }}</th>
-                                                <th class="text-center">{{ $item->foto }}</th>
+                                                <th class="text-center">
+                                                    <img src="{{ $item->foto }}" alt=""
+                                                        style="max-width: 100px; max-height: 100px;">
+                                                </th>
                                                 <td class="align-middle text-center">
                                                     @if ($item->status == 2)
                                                         <span class="badge badge-success px-2">Sudah</span>

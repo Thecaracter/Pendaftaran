@@ -13,7 +13,8 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <i data-feather="users" class="bell"></i>
+                <img alt="image" src="{{ asset(Auth::user()->foto) }}" class="user-img-radious-style">
+                <span class="d-sm-none d-lg-inline-block"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title">

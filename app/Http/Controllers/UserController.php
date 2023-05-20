@@ -115,56 +115,82 @@ class UserController extends Controller
      */
     public function updateProfile(Request $request)
     {
-        // Validasi input form
-        $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|email',
-            'password' => 'nullable|string|min:6|confirmed',
-            'alamat' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:20',
-            'foto' => 'nullable|image|max:2048', // Ubah sesuai kebutuhan
-        ]);
+        try {
+            // Validasi input pengguna
+            $validator = Validator::make($request->all(), [
+                'username' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email,' . auth()->id(),
+                'password' => 'nullable|string|min:8',
+                'alamat' => 'required|string',
+                'no_hp' => 'required|string',
+                'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
 
-        // Ambil user yang sedang login
-        $user = Auth::user();
+            // Jika validasi gagal, kembalikan respon dengan pesan error
+            if ($validator->fails()) {
+                $errors = $validator->errors()->all();
 
-        // Update data username dan email
-        $user->username = $request->username;
-        $user->email = $request->email;
+                // Tampilkan notifikasi Swal.fire dengan pesan validasi
+                $notification = [
+                    'title' => 'Oops!',
+                    'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
+                    'type' => 'error',
+                    'validation' => $errors,
+                ];
 
-        // Update password jika diisi
-        if ($request->password) {
-            $user->password = Hash::make($request->password);
-        }
-
-        // Update alamat dan nomor telepon
-        $user->alamat = $request->alamat;
-        $user->no_telp = $request->no_telp;
-
-        // Upload foto jika ada
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            $fileName = time() . '.' . $foto->getClientOriginalExtension();
-            $foto->move(public_path('foto'), $fileName);
-            $path = 'foto/' . $fileName;
-
-            // Hapus file foto lama jika ada
-            if ($user->foto) {
-                $oldFilePath = public_path($user->foto);
-                if (file_exists($oldFilePath)) {
-                    unlink($oldFilePath);
-                }
+                return redirect()->back()->with('notification', $notification)->withInput();
             }
 
-            $user->foto = $path;
+            // Temukan pengguna yang sedang login
+            $user = auth()->user();
+
+            // Update data pengguna
+            $user->username = $request->input('username');
+            $user->email = $request->input('email');
+            $user->alamat = $request->input('alamat');
+            $user->no_hp = $request->input('no_hp');
+
+            // Periksa apakah ada input password baru
+            if ($request->filled('password')) {
+                $user->password = bcrypt($request->input('password'));
+            }
+
+            // Periksa apakah ada file foto yang diunggah
+            if ($request->hasFile('foto')) {
+                $foto = $request->file('foto');
+                $fileName = time() . '.' . $foto->getClientOriginalExtension();
+                $foto->move(public_path('foto'), $fileName);
+                $path = 'foto/' . $fileName;
+
+                // Hapus file foto lama jika ada
+                if ($user->foto) {
+                    $oldFilePath = public_path($user->foto);
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $user->foto = $path;
+            }
+
+            $user->save();
+
+            return redirect()->route('user.index')->with('success', 'Data pengguna berhasil diperbarui');
+        } catch (\Exception $e) {
+            dd($e->getMessage()); // Tambahkan ini untuk mencetak pesan error
+
+            // Tampilkan notifikasi Swal.fire dengan pesan error umum
+            $notification = [
+                'title' => 'Oops!',
+                'text' => 'Terjadi kesalahan saat memperbarui data pengguna',
+                'type' => 'error',
+            ];
+
+            return redirect()->back()->with('notification', $notification)->withInput();
         }
-
-        // Simpan perubahan
-        $user->save();
-
-        // Redirect ke halaman profil
-        return redirect()->route('/profile')->with('success', 'Profil berhasil diperbarui.');
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
