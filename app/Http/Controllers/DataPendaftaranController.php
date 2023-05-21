@@ -13,14 +13,11 @@ class DataPendaftaranController extends Controller
      */
     public function index()
     {
-        // $pendaftaran = Pendaftaran::all();
-        // return view('admin.datapendaftaran', compact('pendafataran'));
         $pendaftaran = DB::table('pendaftaran')
             ->join('lomba', 'pendaftaran.id_lomba', '=', 'lomba.id')
             ->select('pendaftaran.*', 'lomba.nama')
             ->get();
         return view('admin.datapendaftaran', compact('pendaftaran'));
-        // return response()->json($pendaftaran);
     }
 
     /**
