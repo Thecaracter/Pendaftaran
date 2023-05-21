@@ -85,16 +85,54 @@ class DataPendaftaranController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi inputan form
+        $validatedData = $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'alamat' => 'required',
+            'nisn' => 'required',
+            'id_lomba' => 'required',
+            'no_hp' => 'required',
+            'asal_sekolah' => 'required',
+            'status_pembayaran' => 'required', // Tambahkan validasi status_pembayaran
+        ]);
+
+        // Proses pembaruan data di dalam database
+        // Misalnya:
+        $pendaftaran = Pendaftaran::findOrFail($id);
+        $pendaftaran->nama_peserta = $request->username;
+        $pendaftaran->email = $request->email;
+        $pendaftaran->alamat = $request->alamat;
+        $pendaftaran->nisn = $request->nisn;
+        $pendaftaran->id_lomba = $request->id_lomba;
+        $pendaftaran->no_hp = $request->no_hp;
+        $pendaftaran->asal_sekolah = $request->asal_sekolah;
+        $pendaftaran->status_pembayaran = $request->status_pembayaran; // Perbarui status_pembayaran
+        $pendaftaran->tanggal_pendaftaran = Carbon::now(); // Menggunakan nilai saat ini
+        $pendaftaran->save();
+
+        // Redirect atau berikan respon sesuai kebutuhan Anda
+        return redirect()->back()->with('success', 'Profil berhasil diperbarui');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $user = Pendaftaran::findOrFail($id);
+        $user->delete();
+
+        $notification = [
+            'title' => 'Selamat!',
+            'text' => 'Data pengguna berhasil dihapus',
+            'type' => 'success',
+        ];
+
+        return redirect()->route('pendaftaran.index')->with('notification', $notification)->withInput();
     }
 }
