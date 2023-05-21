@@ -53,7 +53,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Pendaftaran route
 Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index')->middleware('isLogin');
-
+Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.create')->middleware('isLogin');
 
 
 

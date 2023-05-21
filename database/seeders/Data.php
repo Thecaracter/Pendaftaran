@@ -39,5 +39,24 @@ class Data extends Seeder
             ],
             // Tambahkan data pengguna lainnya jika diperlukan
         ]);
+
+        DB::table('lomba')->insert([
+            [
+                'nama' => 'Lomba A',
+                'tanggal_mulai' => '2023-06-01',
+                'tanggal_selesai' => '2023-06-10',
+                'foto' => 'foto/1684615829.jpg',
+                'harga' => 100000,
+                'deskripsi' => 'Deskripsi Lomba A',
+            ],
+            [
+                'nama' => 'Lomba B',
+                'tanggal_mulai' => '2023-07-01',
+                'tanggal_selesai' => '2023-07-10',
+                'foto' => 'foto/1684615829.jpg',
+                'harga' => 150000,
+                'deskripsi' => 'Deskripsi Lomba B',
+            ],
+        ]);
     }
 }
