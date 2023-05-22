@@ -133,6 +133,6 @@ class DataPendaftaranController extends Controller
             'type' => 'success',
         ];
 
-        return redirect()->route('pendaftaran.index')->with('notification', $notification)->withInput();
+        return redirect()->route('pendaftaran.index')->with('success', 'Profil berhasil diperbarui');
     }
 }

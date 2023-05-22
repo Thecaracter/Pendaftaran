@@ -206,107 +206,109 @@
             </div>
         </div>
         <!-- modal update -->
-        <div class="modal fade" id="editPendaftaranModal{{ $pen->id }}" tabindex="-1" role="dialog"
-            aria-labelledby="updateProfileModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="updateProfileModalLabel">Update Profile</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @if (auth()->check())
-                            @if (session('notification'))
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach (session('notification')['validation'] as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            <form action="{{ route('pendaftaran.update', $pen->id) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                @method('POST')
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="username">Nama Peserta</label>
-                                        <input id="username" type="text" class="form-control" name="username"
-                                            autofocus value="{{ $pen->nama_peserta }}">
+        @foreach ($pendaftaran as $pen)
+            <div class="modal fade" id="editPendaftaranModal{{ $pen->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="updateProfileModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="updateProfileModalLabel">Update Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @if (auth()->check())
+                                @if (session('notification'))
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach (session('notification')['validation'] as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
-                                    <div class="form-group col-6">
-                                        <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email"
-                                            value="{{ $pen->email }}">
+                                @endif
+                                <form action="{{ route('pendaftaran.update', $pen->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('POST')
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="username">Nama Peserta</label>
+                                            <input id="username" type="text" class="form-control" name="username"
+                                                autofocus value="{{ $pen->nama_peserta }}">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="email">Email</label>
+                                            <input id="email" type="email" class="form-control" name="email"
+                                                value="{{ $pen->email }}">
+                                            <div class="invalid-feedback">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <input id="alamat" type="text" class="form-control" name="alamat"
+                                            value="{{ $pen->alamat }}">
                                         <div class="invalid-feedback">
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="alamat">Alamat</label>
-                                    <input id="alamat" type="text" class="form-control" name="alamat"
-                                        value="{{ $pen->alamat }}">
-                                    <div class="invalid-feedback">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="nisn">NISN</label>
+                                            <input id="nisn" type="text" class="form-control" name="nisn"
+                                                autofocus value="{{ $pen->nisn }}">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="id_lomba">Lomba</label>
+                                            <select id="id_lomba" class="form-control" name="id_lomba" autofocus>
+                                                <option value="">Pilih Lomba</option>
+                                                @foreach ($lombas as $lomba)
+                                                    <option value="{{ $lomba->id }}"
+                                                        {{ $lomba->id == $pen->id_lomba ? 'selected' : '' }}>
+                                                        {{ $lomba->nama }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="nisn">NISN</label>
-                                        <input id="nisn" type="text" class="form-control" name="nisn"
-                                            autofocus value="{{ $pen->nisn }}">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="no_hp">Nomor Telepon</label>
+                                            <input id="no_hp" type="text" class="form-control" name="no_hp"
+                                                autofocus value="{{ $pen->no_hp }}">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="asal_sekolah">Asal Sekolah</label>
+                                            <input id="asal_sekolah" type="text" class="form-control"
+                                                name="asal_sekolah" autofocus value="{{ $pen->asal_sekolah }}">
+                                        </div>
                                     </div>
-                                    <div class="form-group col-6">
-                                        <label for="id_lomba">Lomba</label>
-                                        <select id="id_lomba" class="form-control" name="id_lomba" autofocus>
-                                            <option value="">Pilih Lomba</option>
-                                            @foreach ($lombas as $lomba)
-                                                <option value="{{ $lomba->id }}"
-                                                    {{ $lomba->id == $pen->id_lomba ? 'selected' : '' }}>
-                                                    {{ $lomba->nama }}</option>
-                                            @endforeach
+                                    <div class="form-group">
+                                        <label for="status_pembayaran">Status Pembayaran</label>
+                                        <select id="status_pembayaran" class="form-control" name="status_pembayaran">
+                                            <option value="1" {{ $pen->status_pembayaran == '1' ? 'selected' : '' }}>
+                                                Belum Bayar</option>
+                                            <option value="2" {{ $pen->status_pembayaran == '2' ? 'selected' : '' }}>
+                                                Sudah Bayar</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="no_hp">Nomor Telepon</label>
-                                        <input id="no_hp" type="text" class="form-control" name="no_hp"
-                                            autofocus value="{{ $pen->no_hp }}">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                            Update data diri
+                                        </button>
                                     </div>
-                                    <div class="form-group col-6">
-                                        <label for="asal_sekolah">Asal Sekolah</label>
-                                        <input id="asal_sekolah" type="text" class="form-control" name="asal_sekolah"
-                                            autofocus value="{{ $pen->asal_sekolah }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="status_pembayaran">Status Pembayaran</label>
-                                    <select id="status_pembayaran" class="form-control" name="status_pembayaran">
-                                        <option value="1" {{ $pen->status_pembayaran == '1' ? 'selected' : '' }}>
-                                            Belum Bayar</option>
-                                        <option value="2" {{ $pen->status_pembayaran == '2' ? 'selected' : '' }}>
-                                            Sudah Bayar</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        Update data diri
-                                    </button>
-                                </div>
-                            </form>
-                        @else
-                            <p>Silakan login untuk mengakses halaman ini.</p>
-                        @endif
+                                </form>
+                            @else
+                                <p>Silakan login untuk mengakses halaman ini.</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
         <script>
             $(document).ready(function() {
                 $('#searchInput').on('keyup', function() {
