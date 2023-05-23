@@ -27,6 +27,17 @@ class Data extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'username' => 'alif',
+                'email' => 'alif@gmail.com',
+                'password' => Hash::make('12345678'),
+                'role' => 'admin',
+                'status' => '1',
+                'email_verified_at' => now(),
+                // 'remember_token' => str_random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'username' => 'Rizqi',
                 'email' => 'semuamana@gmail.com',
                 'password' => Hash::make('12345678'),
