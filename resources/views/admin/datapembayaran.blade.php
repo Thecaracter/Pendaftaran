@@ -55,7 +55,7 @@
                                                 <td class="align-middle text-center">
                                                     <span>
                                                         <button data-toggle="modal"
-                                                            data-target="#editPendaftaranModal{{ $pem->id }}"
+                                                            data-target="#editPembayaranModal{{ $pem->id }}"
                                                             type="button" class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $pem->id }}" method="post"
                                                             action="{{ route('pembayaran.destroy', $pem->id) }}"
@@ -95,4 +95,46 @@
                 </div>
             </div>
         </div>
+
+        @foreach ($pembayaran as $no => $pem)
+            <!-- Modal Edit Pembayaran -->
+            <div class="modal fade" id="editPembayaranModal{{ $pem->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="editPembayaranModalLabel{{ $pem->id }}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editPembayaranModalLabel{{ $pem->id }}">Edit Pembayaran</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form edit pembayaran -->
+                            <form method="POST" action="{{ route('pembayaran.update', $pem->id) }}">
+                                @csrf
+                                @method('POST')
+
+                                <div class="form-group">
+                                    <label for="jumlah">Jumlah</label>
+                                    <input type="number" class="form-control" id="jumlah" name="jumlah"
+                                        value="{{ $pem->jumlah }}" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tanggal_pembayaran">Tanggal Pembayaran</label>
+                                    <input type="date" class="form-control" id="tanggal_pembayaran"
+                                        name="tanggal_pembayaran" value="{{ $pem->tanggal_pembayaran }}" required>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
     @endsection

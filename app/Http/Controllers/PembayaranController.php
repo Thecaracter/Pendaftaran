@@ -52,9 +52,16 @@ class PembayaranController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $pembayaran = Pembayaran::findOrFail($id);
+
+        $pembayaran->jumlah = $request->input('jumlah');
+        $pembayaran->tanggal_pembayaran = $request->input('tanggal_pembayaran');
+
+        $pembayaran->save();
+
+        return redirect()->back()->with('success', 'Pembayaran berhasil diupdate');
     }
 
     /**
