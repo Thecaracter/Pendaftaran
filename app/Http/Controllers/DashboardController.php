@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lomba;
+use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class DashboardController extends Controller
         $usercount = User::count();
         $lombaCount = Lomba::count();
         $pendaftaranCount = Pendaftaran::count();
-        return view('admin.dashboard', compact('usercount', 'lombaCount', 'pendaftaranCount'));
+        $pembayaranCount = Pembayaran::count();
+        return view('admin.dashboard', compact('usercount', 'lombaCount', 'pendaftaranCount', 'pembayaranCount'));
 
 
     }

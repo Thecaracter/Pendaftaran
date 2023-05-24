@@ -23,7 +23,7 @@
                         @endif
 
                         <div class="card-body">
-                            <h4 class="card-title">Data Pengingat</h4>
+                            <h4 class="card-title">Data Pembayaran</h4>
                             <br>
                             <div class="search-element">
                                 <input id="searchInput" class="form-control" type="search" placeholder="Search"
@@ -58,7 +58,8 @@
                                                             data-target="#editPendaftaranModal{{ $pem->id }}"
                                                             type="button" class="btn btn-info">Edit</button>
                                                         <form id="deleteForm-{{ $pem->id }}" method="post"
-                                                            {{-- action="{{ route('pendaftaran.destroy', $pem->id) }}" --}} style="display:inline">
+                                                            action="{{ route('pembayaran.destroy', $pem->id) }}"
+                                                            style="display:inline">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="button" class="btn btn-danger"

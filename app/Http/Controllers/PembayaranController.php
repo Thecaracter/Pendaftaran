@@ -62,6 +62,15 @@ class PembayaranController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Pembayaran::findOrFail($id);
+        $user->delete();
+
+        // $notification = [
+        //     'title' => 'Selamat!',
+        //     'text' => 'Data pengguna berhasil dihapus',
+        //     'type' => 'success',
+        // ];
+
+        return redirect()->route('pendaftaran.index')->with('success', 'Profil berhasil diperbarui');
     }
 }

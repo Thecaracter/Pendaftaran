@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Data Pengingat</h4>
+                            <h4 class="card-title">Data User</h4>
 
                             <div class="align-right text-right">
 

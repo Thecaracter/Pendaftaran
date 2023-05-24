@@ -60,6 +60,7 @@ Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'dest
 
 // Pembayaran route
 Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index')->middleware('isLogin');
+Route::delete('/data-pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy')->middleware('isLogin');
 
 // profile route
 Route::get('/profile', function () {

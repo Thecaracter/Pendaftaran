@@ -24,7 +24,7 @@
                         @endif
 
                         <div class="card-body">
-                            <h4 class="card-title">Data Pengingat</h4>
+                            <h4 class="card-title">Data Pendaftaran</h4>
 
                             <div class="align-right text-right">
 
