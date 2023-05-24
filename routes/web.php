@@ -37,31 +37,45 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 //logout route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// User route
-Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('isLogin');
-Route::post('/user', [UserController::class, 'create'])->name('user.create')->middleware('isLogin');
-Route::post('/user/{id}', [UserController::class, 'update'])->name('user.update')->middleware('isLogin');
-Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('isLogin');
-
-// Lomba route
-Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index')->middleware('isLogin');
-Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create')->middleware('isLogin');
-Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update')->middleware('isLogin');
-Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy')->middleware('isLogin');
-
 // Dashboar route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('isLogin');
 
+
+// Group middleware untuk admin
+// User route
+Route::group(['middleware' => 'role:admin'], function () {
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::post('/user', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+});
+
+// Lomba route
+Route::group(['middleware' => 'role:admin'], function () {
+    Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index');
+    Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create');
+    Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update');
+    Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy');
+});
+
 // Pendaftaran route
-Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index')->middleware('isLogin');
-Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.create')->middleware('isLogin');
-Route::post('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update')->middleware('isLogin');
-Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy')->middleware('isLogin');
+Route::group(['middleware' => 'role:admin'], function () {
+    Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index');
+    Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.create');
+    Route::post('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update');
+    Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
+});
 
 // Pembayaran route
-Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index')->middleware('isLogin');
-Route::post('/data-pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update')->middleware('isLogin');
-Route::delete('/data-pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy')->middleware('isLogin');
+Route::group(['middleware' => 'role:admin'], function () {
+    Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+    Route::post('/data-pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
+    Route::delete('/data-pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+});
+
+
+
+
 
 // profile route
 Route::get('/profile', function () {
