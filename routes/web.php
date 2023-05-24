@@ -5,6 +5,7 @@ use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,8 @@ Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->n
 Route::post('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update')->middleware('isLogin');
 Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy')->middleware('isLogin');
 
+// Pembayaran route
+Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index')->middleware('isLogin');
 
 // profile route
 Route::get('/profile', function () {

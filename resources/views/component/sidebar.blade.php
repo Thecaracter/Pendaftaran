@@ -21,6 +21,9 @@
             <li class="dropdown {{ Request::path() === 'data-pendaftaran' ? 'active' : '' }}"><a class="nav-link"
                     href="/data-pendaftaran"><i data-feather="clipboard"></i><span>Data Pendaftaran</span></a>
             </li>
+            <li class="dropdown {{ Request::path() === 'data-pembayaran' ? 'active' : '' }}"><a class="nav-link"
+                    href="/data-pembayaran"><i data-feather="dollar-sign"></i><span>Data Pembayaran</span></a>
+            </li>
         </ul>
     </aside>
 </div>
