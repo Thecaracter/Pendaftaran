@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PendaftaranUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -42,41 +43,35 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 
 // Group middleware untuk admin
-// User route
-Route::group(['middleware' => 'role:admin'], function () {
+Route::middleware(['role:admin'])->group(function () {
+    // User route
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::post('/user', [UserController::class, 'create'])->name('user.create');
     Route::post('/user/{id}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-});
 
-// Lomba route
-Route::group(['middleware' => 'role:admin'], function () {
+    // Lomba route
     Route::get('/lomba', [LombaController::class, 'index'])->name('lomba.index');
     Route::post('/lomba', [LombaController::class, 'create'])->name('lomba.create');
     Route::post('/lomba/{id}', [LombaController::class, 'update'])->name('lomba.update');
     Route::delete('/lomba/{id}', [LombaController::class, 'destroy'])->name('lomba.destroy');
-});
 
-// Pendaftaran route
-Route::group(['middleware' => 'role:admin'], function () {
+    // Pendaftaran route
     Route::get('/data-pendaftaran', [DataPendaftaranController::class, 'index'])->name('pendaftaran.index');
     Route::post('/data-pendaftaran', [DataPendaftaranController::class, 'store'])->name('pendaftaran.create');
     Route::post('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'update'])->name('pendaftaran.update');
     Route::delete('/data-pendaftaran/{id}', [DataPendaftaranController::class, 'destroy'])->name('pendaftaran.destroy');
-});
 
-// Pembayaran route
-Route::group(['middleware' => 'role:admin'], function () {
+    // Pembayaran route
     Route::get('/data-pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
     Route::post('/data-pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
     Route::delete('/data-pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
 });
 
-
-
-
-
+Route::get('/pendaftaran', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index');
+Route::post('/pendaftaran', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create');
+Route::post('/pendaftaran/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update');
+Route::delete('/pembayaran/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
 // profile route
 Route::get('/profile', function () {
     return view('profile.profile');

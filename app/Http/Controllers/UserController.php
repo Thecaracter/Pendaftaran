@@ -175,7 +175,7 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect()->route('user.index')->with('success', 'Data pengguna berhasil diperbarui');
+            return redirect()->route('dashboard.index')->with('success', 'Data pengguna berhasil diperbarui');
         } catch (\Exception $e) {
             dd($e->getMessage()); // Tambahkan ini untuk mencetak pesan error
 

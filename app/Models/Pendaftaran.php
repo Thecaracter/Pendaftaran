@@ -31,4 +31,9 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo(Lomba::class, 'id_lomba');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }
