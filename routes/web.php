@@ -69,11 +69,11 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('/data-pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
 });
 
-Route::get('/pendaftaran', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index');
-Route::post('/pendaftaran', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create');
-Route::post('/pendaftaran/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update');
-Route::delete('/pendaftaran/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
-Route::get('/cetak-pendaftaran/{id}', [CetakPendaftaranController::class, 'generateCetakPendaftaran'])->name('cetak-pendaftaran.generate');
+Route::get('/pendaftaran', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index')->middleware('isLogin');
+Route::post('/pendaftaran', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create')->middleware('isLogin');
+Route::post('/pendaftaran/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update')->middleware('isLogin');
+Route::delete('/pendaftaran/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy')->middleware('isLogin');
+Route::get('/cetak-pendaftaran/{id}', [CetakPendaftaranController::class, 'generateCetakPendaftaran'])->name('cetak-pendaftaran.generate')->middleware('isLogin');
 // profile route
 Route::get('/profile', function () {
     return view('profile.profile');

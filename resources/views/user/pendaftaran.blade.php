@@ -125,8 +125,8 @@
                                                     }
 
                                                     function printDocument(userId) {
-                                                        // Lakukan pengalihan ke halaman cetak-pendaftaran dengan userId sebagai parameter
-                                                        window.location.href = '/cetak-pendaftaran/' + userId;
+                                                        // Membuka halaman cetak-pendaftaran di tab baru
+                                                        window.open('/cetak-pendaftaran/' + userId, '_blank');
                                                     }
                                                 </script>
                                         @endforeach

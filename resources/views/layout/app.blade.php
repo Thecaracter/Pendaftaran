@@ -17,6 +17,9 @@
     <!--jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+    <!--chartjs-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!--sweetalert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

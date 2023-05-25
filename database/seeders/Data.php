@@ -58,7 +58,7 @@ class Data extends Seeder
                 'tanggal_selesai' => '2023-06-10',
                 'foto' => 'foto/1684615829.jpg',
                 'harga' => 100000,
-                'deskripsi' => 'Deskripsi Lomba A',
+                'deskripsi' => 'Kaligrafi Tionghoa atau seni lukis huruf Tionghoa adalah bentuk kaligrafi yang dipraktikan dan dihasilkan dalam kebudayaan Asia Timur, yang meliputi Korea, Taiwan, Vietnam, China, dan Jepang. Kaligrafi Cina ditandai dengan orisinalitas dan kekayaan tulisan Cina',
             ],
             [
                 'nama' => 'Makan Kerupuk',
@@ -66,7 +66,7 @@ class Data extends Seeder
                 'tanggal_selesai' => '2023-07-10',
                 'foto' => 'foto/1684615829.jpg',
                 'harga' => 150000,
-                'deskripsi' => 'Deskripsi Lomba B',
+                'deskripsi' => 'Lomba Makan kerupuk adalah salah satu lomba yang diadakan saat perayaan Hari Kemerdekaan Indonesia. Lomba ini sangat sederhana dan bisa diikuti oleh semua orang dari segala umur atau jenis kelamin. Bahan yang dibutuhkan untuk perlombaan ini hanyalah kerupuk dan tali. ',
             ],
         ]);
     }
