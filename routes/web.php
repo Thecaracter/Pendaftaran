@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CetakPendaftaranController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
@@ -71,7 +72,8 @@ Route::middleware(['role:admin'])->group(function () {
 Route::get('/pendaftaran', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index');
 Route::post('/pendaftaran', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create');
 Route::post('/pendaftaran/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update');
-Route::delete('/pembayaran/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
+Route::delete('/pendaftaran/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
+Route::get('/cetak-pendaftaran/{id}', [CetakPendaftaranController::class, 'generateCetakPendaftaran'])->name('cetak-pendaftaran.generate');
 // profile route
 Route::get('/profile', function () {
     return view('profile.profile');

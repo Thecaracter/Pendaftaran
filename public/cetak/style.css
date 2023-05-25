@@ -1,0 +1,48 @@
+/* Gaya khusus untuk surat resmi */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.letter-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.letter-header h3 {
+    margin: 0;
+}
+
+.letter-content {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    text-align: justify;
+}
+
+
+.letter-content p {
+    margin: 0 0 10px;
+}
+
+.letter-footer {
+    text-align: center;
+}
+
+/* Tambahkan gaya untuk tombol cetak */
+.no-print {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.no-print button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.no-print button:hover {
+    background-color: #45a049;
+}

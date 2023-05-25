@@ -98,36 +98,37 @@
                                                             <button type="button" class="btn btn-success"
                                                                 onclick="printDocument('{{ $pen->id }}')">Cetak</button>
                                                         @endif
-                                                        <script>
-                                                            function confirmDelete(userId) {
-                                                                Swal.fire({
-                                                                    title: 'Yakin Mo Ngapus Bro?',
-                                                                    text: "Nggak bakal bisa balik lo",
-                                                                    icon: 'warning',
-                                                                    showCancelButton: true,
-                                                                    confirmButtonColor: '#3085d6',
-                                                                    cancelButtonColor: '#d33',
-                                                                    confirmButtonText: 'Yes, delete it!'
-                                                                }).then((result) => {
-                                                                    if (result.isConfirmed) {
-                                                                        // Submit form untuk menghapus data
-                                                                        document.getElementById('deleteForm-' + userId).submit();
-                                                                    }
-                                                                });
-                                                            }
-
-                                                            function goToPayment(userId) {
-                                                                // Lakukan pengalihan ke halaman pembayaran dengan userId sebagai parameter
-                                                                window.location.href = '/payment/' + userId;
-                                                            }
-
-                                                            function printDocument(userId) {
-                                                                // Lakukan pencetakan dokumen dengan userId sebagai parameter
-                                                                // Implementasi logika pencetakan dokumen
-                                                            }
-                                                        </script>
                                                     </span>
                                                 </td>
+
+                                                <script>
+                                                    function confirmDelete(userId) {
+                                                        Swal.fire({
+                                                            title: 'Yakin Mo Ngapus Bro?',
+                                                            text: "Nggak bakal bisa balik lo",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Yes, delete it!'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                // Submit form untuk menghapus data
+                                                                document.getElementById('deleteForm-' + userId).submit();
+                                                            }
+                                                        });
+                                                    }
+
+                                                    function goToPayment(userId) {
+                                                        // Lakukan pengalihan ke halaman pembayaran dengan userId sebagai parameter
+                                                        window.location.href = '/payment/' + userId;
+                                                    }
+
+                                                    function printDocument(userId) {
+                                                        // Lakukan pengalihan ke halaman cetak-pendaftaran dengan userId sebagai parameter
+                                                        window.location.href = '/cetak-pendaftaran/' + userId;
+                                                    }
+                                                </script>
                                         @endforeach
                                         </tr>
                                     </tbody>
