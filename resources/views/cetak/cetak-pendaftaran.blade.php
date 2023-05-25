@@ -21,9 +21,11 @@
         <p>{{ $pendaftaran->no_hp }}</p>
         <br>
         <p>Dengan hormat,</p>
-        <p>Surat ini adalah konfirmasi pendaftaran Anda untuk acara Lomba {{ $pendaftaran }} yang akan diselenggarakan
+        <p>Surat ini adalah konfirmasi pendaftaran Anda untuk acara Lomba {{ $pendaftaran->lomba->nama }} yang akan
+            diselenggarakan
             pada
-            tanggal .</p>
+            tanggal {{ $pendaftaran->lomba->tanggal_mulai }} sampai dengan {{ $pendaftaran->lomba->tanggal_selesai }}.
+        </p>
         <p>Detail informasi sebagai berikut:</p>
         <ul class="text-left">
             <li>Nama Peserta: {{ $pendaftaran->nama_peserta }}</li>
@@ -31,26 +33,29 @@
             <li>No. HP: {{ $pendaftaran->no_hp }}</li>
             <li>Alamat: {{ $pendaftaran->alamat }}</li>
             <li>Asal Sekolah: {{ $pendaftaran->asal_sekolah }}</li>
-            <li>Nama Lomba: {{ $pendaftaran->nama }}</li>
             <li>NISN: {{ $pendaftaran->nisn }}</li>
+            <li>Biaya Administrasi: RP {{ number_format($pendaftaran->lomba->harga, 0, ',', '.') }}</li>
             <li>Status Pembayaran: {{ $pendaftaran->status_pembayaran == '1' ? 'Belum Bayar' : 'Sudah Bayar' }}</li>
             <li>Tanggal Pendaftaran: {{ $pendaftaran->tanggal_pendaftaran }}</li>
         </ul>
         <p>Mohon untuk mempersiapkan diri dengan baik dan hadir tepat waktu pada acara tersebut.</p>
         <p>Terima kasih atas partisipasi Anda.</p>
+        <img src="{{ asset('img/ttd.png') }}" alt="ttd" class="ttd">
         <br>
         <p>Hormat kami,</p>
-        <p>Penyelenggara Lomba Matematika</p>
+        <p>Penyelenggara Lomba {{ $pendaftaran->lomba->nama }}</p>
     </div>
-
     <div class="letter-footer">
-        <p>Surat ini dicetak secara otomatis. Tidak diperlukan tanda tangan.</p>
+        <p>Surat ini dicetak secara otomatis</p>
     </div>
 
-    <!-- Tambahkan tombol cetak -->
-    <div class="no-print">
-        <button type="button" onclick="window.print()">Cetak</button>
-    </div>
+
+    <script>
+        window.onload = function() {
+            window.print();
+        };
+    </script>
+
 </body>
 
 </html>
