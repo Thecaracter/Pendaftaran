@@ -53,7 +53,7 @@ class Data extends Seeder
 
         DB::table('lomba')->insert([
             [
-                'nama' => 'Lomba A',
+                'nama' => 'Menulis China',
                 'tanggal_mulai' => '2023-06-01',
                 'tanggal_selesai' => '2023-06-10',
                 'foto' => 'foto/1684615829.jpg',
@@ -61,7 +61,7 @@ class Data extends Seeder
                 'deskripsi' => 'Deskripsi Lomba A',
             ],
             [
-                'nama' => 'Lomba B',
+                'nama' => 'Makan Kerupuk',
                 'tanggal_mulai' => '2023-07-01',
                 'tanggal_selesai' => '2023-07-10',
                 'foto' => 'foto/1684615829.jpg',
