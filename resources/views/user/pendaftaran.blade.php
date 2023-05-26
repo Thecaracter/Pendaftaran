@@ -54,6 +54,7 @@
                                             <th class="text-center">Asal Sekolah</th>
                                             <th class="text-center">Nama Lomba</th>
                                             <th class="text-center">NISN</th>
+                                            <th class="text-center">Harga</th>
                                             <th class="text-center">Status Pembayaran</th>
                                             <th class="text-center">Tanggal Pendaftaran</th>
                                             <th class="text-center">Action</th>
@@ -71,6 +72,8 @@
                                                 <td class="text-center">{{ $pen->asal_sekolah }}</td>
                                                 <td class="text-center">{{ $pen->nama }}</td>
                                                 <td class="text-center">{{ $pen->nisn }}</td>
+                                                <td class="text-center">{{ number_format($pen->harga, 0, ',', '.') }}</td>
+                                                </td>
                                                 <td class="text-center">
                                                     @if ($pen->status_pembayaran == '1')
                                                         <span class="badge badge-danger">Belum Bayar</span>
@@ -92,8 +95,10 @@
                                                             <button type="button" class="btn btn-danger"
                                                                 onclick="confirmDelete('{{ $pen->id }}')">Delete</button>
                                                         </form>
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="goToPayment('{{ $pen->id }}')">Pembayaran</button>
+                                                        @if ($pen->status_pembayaran == '1')
+                                                            <button type="button" class="btn btn-primary"
+                                                                onclick="goToPayment('{{ $pen->id }}')">Pembayaran</button>
+                                                        @endif
                                                         @if ($pen->status_pembayaran == '2')
                                                             <button type="button" class="btn btn-success"
                                                                 onclick="printDocument('{{ $pen->id }}')">Cetak</button>

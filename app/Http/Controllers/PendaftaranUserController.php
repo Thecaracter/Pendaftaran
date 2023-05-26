@@ -18,9 +18,10 @@ class PendaftaranUserController extends Controller
 
         $lombas = Lomba::all();
 
+        // $userpendaftaran = Pendaftaran::with('lomba')->get();
         $userpendaftaran = DB::table('pendaftaran')
             ->join('lomba', 'pendaftaran.id_lomba', '=', 'lomba.id')
-            ->select('pendaftaran.*', 'lomba.nama')
+            ->select('pendaftaran.*', 'lomba.nama', 'lomba.harga')
             ->where('pendaftaran.id_user', $user->id) // Menambahkan kondisi WHERE
             ->get();
 
