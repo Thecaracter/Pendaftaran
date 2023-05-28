@@ -101,4 +101,4 @@ Route::get('/payment/{id}', [PaymentController::class, 'redirectToPayment'])->na
 
 
 // Route untuk pembaruan status pembayaran
-Route::post('/payment/callback', [PaymentController::class, 'callbackPayment'])->name('payment.callback');
+Route::post('/update-payment', [PaymentController::class, 'updatePayment'])->name('update-payment');
