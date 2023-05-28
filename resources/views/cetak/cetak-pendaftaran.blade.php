@@ -39,7 +39,7 @@
             <li>Status Pembayaran: {{ $pendaftaran->status_pembayaran == '1' ? 'Belum Bayar' : 'Sudah Bayar' }}</li>
             <li>Tanggal Pendaftaran: {{ $pendaftaran->tanggal_pendaftaran }}</li>
         </ul>
-        <p>Mohon untuk mempersiapkan diri dengan baik dan hadir tepat waktu pada acara tersebut.</p>
+        <p>Mohon untuk mempersiapkan diri dengan baik dan hadir pada lomba tersebut.</p>
         <p>Terima kasih atas partisipasi Anda.</p>
         <img src="{{ asset('img/ttd.png') }}" alt="ttd" class="ttd">
         <br>
