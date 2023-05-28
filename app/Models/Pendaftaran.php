@@ -8,16 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Pendaftaran extends Model
 {
     use HasFactory;
+
     protected $table = 'pendaftaran';
 
     protected $fillable = [
         'id_lomba',
+        'id_user',
         'nama',
         'email',
         'no_hp',
         'alamat',
         'asal_sekolah',
         'nisn',
+        'harga',
         'status_pembayaran',
         'tanggal_pendaftaran',
     ];

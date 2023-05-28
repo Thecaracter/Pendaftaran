@@ -6,6 +6,7 @@ use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PendaftaranUserController;
 use App\Http\Controllers\RegisterController;
@@ -94,3 +95,10 @@ Route::get('/reset-password/{token}', function (string $token) {
 })->middleware('guest')->name('password.reset');
 
 Route::post('/reset-password', [ForgotPassword::class, 'reset'])->middleware('guest')->name('password.update');
+
+
+Route::get('/payment/{id}', [PaymentController::class, 'redirectToPayment'])->name('payment.redirect');
+
+
+// Route untuk pembaruan status pembayaran
+Route::post('/payment/callback', [PaymentController::class, 'callbackPayment'])->name('payment.callback');
