@@ -47,7 +47,7 @@
         <p>Penyelenggara Lomba {{ $pendaftaran->lomba->nama }}</p>
     </div>
     <div class="letter-footer">
-        <p></p>
+        <p>Surat ini dicetak secara otomatis</p>
     </div>
 
 
