@@ -66,7 +66,7 @@ class PaymentController extends Controller
         $pembayaran->tanggal_pembayaran = $tanggalPembayaran;
         $pembayaran->save();
 
-        return redirect()->route('user.pendaftaran')->with('message', 'Payment data updated successfully');
+        return redirect()->route('pendaftaranuser.index')->with('success', 'Wes Bayar Bos');
     }
 
 
