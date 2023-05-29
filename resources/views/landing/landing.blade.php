@@ -48,7 +48,7 @@
 
 <body data-spy="scroll" data-target="#navbar-example">
 
-    {{-- <div id="preloader"></div> --}}
+    <div id="preloader"></div>
 
     <header>
         <!-- header-area start -->
