@@ -87,7 +87,7 @@
                                         <a class="page-scroll" href="#about">About</a>
                                     </li>
                                     <li>
-                                        <a class="page-scroll" href="#services">Services</a>
+                                        <a class="page-scroll" href="#services">Statistik</a>
                                     </li>
                                     <li>
                                         <a class="page-scroll" href="#portfolio">Lomba</a>
