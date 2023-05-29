@@ -24,7 +24,7 @@ class PaymentController extends Controller
 
         $params = [
             'transaction_details' => [
-                'order_id' => 'ORDER-' . $pendaftaran->id,
+                'order_id' => 'Pembayaran-' . $pendaftaran->id,
                 'gross_amount' => (float) $pendaftaran->lomba->harga,
                 // Mengambil harga dari relasi 'lomba'
             ],
