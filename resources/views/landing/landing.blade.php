@@ -225,14 +225,41 @@
                     <div class="well-middle">
                         <div class="section-headline text-center">
 
-                            <h4 class="sec-head">Visi Koperasi Simpan Pinjam</h4>
+                            <h4 class="sec-head">Sekilas Tentang Kami</h4>
                             </a>
                             <p>
-                                Mengajak seluruh potensi yang ada dalam masyarakat dengan tanpa membedakan
-                                suku,ras,golongan dan agama,
-                                agar mereka dapat bersama-sama, bersatu padu dan beritikad baik dalam membangun ekonomi
-                                kerakyatan
-                                secara bergotong royong dalam bentuk koperasi.
+                                Kami adalah tim yang berdedikasi dalam pengadaan lomba. Dengan visi untuk mempromosikan
+                                bakat dan semangat kompetisi, kami berkomitmen untuk menyelenggarakan acara lomba yang
+                                menginspirasi, menghibur, dan memberikan kesempatan bagi individu untuk menampilkan
+                                kemampuan terbaik mereka.
+
+                                Melalui pengalaman dan keahlian kami, kami mendedikasikan diri untuk menyusun
+                                lomba-lomba yang berkualitas dan beragam, mencakup berbagai bidang seperti olahraga,
+                                seni, teknologi, sains, dan banyak lagi. Kami percaya bahwa lomba dapat menjadi platform
+                                yang membangun karakter, memupuk kerjasama, dan mengasah kemampuan peserta.
+
+                                Kami mengutamakan profesionalisme dalam setiap aspek pengadaan lomba. Mulai dari
+                                perencanaan, pengorganisasian, hingga pelaksanaan, kami memastikan bahwa setiap detail
+                                diatur dengan cermat. Kami bekerja sama dengan para ahli dan profesional di bidangnya
+                                untuk memberikan pengalaman lomba yang tak terlupakan bagi semua peserta.
+
+                                Selain itu, kami juga menjunjung tinggi integritas dan transparansi. Kami mengedepankan
+                                aturan yang adil, evaluasi objektif, dan penghargaan yang setimpal bagi para pemenang.
+                                Kami yakin bahwa kejujuran dan fair play adalah landasan penting dalam setiap kompetisi
+                                yang kami selenggarakan.
+
+                                Kami mengundang semua individu yang berbakat dan bersemangat untuk bergabung dalam
+                                lomba-lomba kami. Kami berkomitmen untuk menciptakan lingkungan yang inklusif dan
+                                memberikan kesempatan yang setara bagi semua peserta. Setiap lomba yang kami
+                                selenggarakan adalah kesempatan untuk berbagi inspirasi, mengembangkan potensi diri, dan
+                                menjalin hubungan sosial yang berharga.
+
+                                Kami bangga menjadi bagian dari perjalanan peserta dalam mencapai kesuksesan dan
+                                mempertahankan semangat kompetisi. Bersama-sama, mari kita hadapi tantangan, berinovasi,
+                                dan meraih prestasi yang luar biasa dalam setiap lomba yang kami adakan.
+
+                                Bergabunglah dengan kami dan saksikan bagaimana lomba kami menjadi panggung yang
+                                memunculkan bakat, menjalin persahabatan, dan mengilhami pertumbuhan individu.
                             </p>
                             <ul>
                                 <li>
@@ -242,32 +269,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- single-well end-->
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="well-middle">
-                        <div class="section-headline text-center">
-                            <br>
-
-                            <h4 class="sec-head">Misi Koperasi Simpan Pinjam</h4>
-
-                            <ul>
-                                <li>Mewujudkan SDM pengelola Koperasi dan UMKM yang Profesional</li>
-                                <li>Mewujudkan iklim usaha yang kondusif bagi perkembangan Koperasi dan UMKM</li>
-                                <li>Menumbuh kembangkan lembaga keuangan mikro (KOPERASI SIMPAN PINJAM/ UNIT SIMPAN
-                                    PINJAM
-                                    KOPERASI-Koperasi) sampai di wilayah perdesaan</li>
-                                <li>Membangun dan mengembangkan jaringan distribusi dan networking ekonomi sampai
-                                    perdesaan</li>
-                                <li>Mengembangkan Koperasi dan UMKM berbasis produk unggulan daerah yang tertumpu pada
-                                    sumber daya lokal
-                                </li>
-                                <li>Penumbuhan wirausaha baru dan perluasan kesempatan kerja</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End col-->
             </div>
         </div>
     </div>
