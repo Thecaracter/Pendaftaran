@@ -9,8 +9,8 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="{{ asset('publiclanding/img/logo_koperasi.png') }}" rel="icon">
-    <link href="{{ asset('publiclanding/img/logo_koperasi.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('admin/assets/img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('admin/assets/img/logo.png') }}" rel="apple-touch-icon">
 
 
     <!-- Google Fonts -->
