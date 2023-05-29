@@ -732,9 +732,8 @@
                                 <i class="fa fa-phone"></i></a>
                                 <p>
                                     Call: (0333) 846328<br>
-                                    <span>Senin - Kamis (08.00 - 14.00)
-                                        <br>Jumat (08.00 - 10.30)
-                                        <br>Sabtu (08.00 - 13.00)</span>
+                                    <span>Senin - Jumat (08.00 - 14.00)
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -757,8 +756,8 @@
                             <div class="single-icon">
                                 <i class="fa fa-map-marker"></i>
                                 <p>
-                                    Jl. Guntur, Dusun Krajan, Genteng Kulon, Kec. Genteng<br>
-                                    <span>Banyuwangi</span>
+                                    Jl Pahlawan Klayu Mayang<br>
+                                    <span>Jember, Jawa Timur</span>
                                 </p>
                             </div>
                         </div>
