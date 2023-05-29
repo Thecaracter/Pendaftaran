@@ -676,21 +676,20 @@
                                 <div class="single-testi">
                                     <div class="testi-text">
                                         <p>
-                                            KSP Makmur membantu saya dalam mendirikan usaha dengan program pinjaman,
-                                            <br>kemudian saya salurkan untuk membangun usaha yang saya miliki
+                                            Kemenangan bukanlah prioritas utama dalam suatu perlombaan, tapi juga dapat
+                                            menjadi pengalaman dan motivasi diri.
                                         </p>
-                                        <h6>-Anindita-</h6>
+                                        <h6>-Chairul Tanjung-</h6>
                                     </div>
                                 </div>
                                 <!-- End single item -->
                                 <div class="single-testi">
                                     <div class="testi-text">
                                         <p>
-                                            Koperasi simpan pinjam bisa memberikan solusi bagi setiap orang yang
-                                            membutuhkan bantuan dalam masalah perekonomian.
-                                            <br>Dengan alasan tersebut, maka koperasi semakin berkembang dan disukai.
+                                            Apapun yang kita lakukan dalam kehidupan ini adalah perlombaan dalam
+                                            <br>kebaikan. Bukan perlombaan keunggulan satu sama lain.
                                         </p>
-                                        <h6>-Maulana-</h6>
+                                        <h6>-Emha Ainun Nadjib-</h6>
                                     </div>
                                 </div>
                                 <!-- End single item -->
@@ -776,120 +775,120 @@
         </div>
     </div>
     <!-- End Contact Area -->
-    <-- modal detail -->
-        @foreach ($lombas as $lomba)
-            <div class="modal fade" id="modal{{ $lomba->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="modal{{ $lomba->id }}Label" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal{{ $lomba->id }}Label">{{ $lomba->nama }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+    <!-- modal detail -->
+    @foreach ($lombas as $lomba)
+        <div class="modal fade" id="modal{{ $lomba->id }}" tabindex="-1" role="dialog"
+            aria-labelledby="modal{{ $lomba->id }}Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal{{ $lomba->id }}Label">{{ $lomba->nama }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img src="{{ $lomba->foto }}" alt="Foto Lomba" class="img-fluid rounded mb-3"
+                                style="object-fit: cover; max-height: 200px;">
                         </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <img src="{{ $lomba->foto }}" alt="Foto Lomba" class="img-fluid rounded mb-3"
-                                    style="object-fit: cover; max-height: 200px;">
-                            </div>
-                            <h6>Tanggal Mulai</h6>
-                            <p>{{ $lomba->tanggal_mulai }}</p>
-                            <h6>Tanggal Selesai</h6>
-                            <p>{{ $lomba->tanggal_selesai }}</p>
-                            <h6>Deskripsi</h6>
-                            <p>{{ $lomba->deskripsi }}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                        <h6>Tanggal Mulai</h6>
+                        <p>{{ $lomba->tanggal_mulai }}</p>
+                        <h6>Tanggal Selesai</h6>
+                        <p>{{ $lomba->tanggal_selesai }}</p>
+                        <h6>Deskripsi</h6>
+                        <p>{{ $lomba->deskripsi }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
+    @endforeach
 
-        <!-- Start Footer bottom Area -->
-        <footer>
-            <div class="footer-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="footer-content">
-                                <div class="footer-head">
-                                    <div class="footer-logo">
-                                        <h2>Koperasi Simpan Pinjam</h2>
-                                    </div>
+    <!-- Start Footer bottom Area -->
+    <footer>
+        <div class="footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="footer-content">
+                            <div class="footer-head">
+                                <div class="footer-logo">
+                                    <h2>Koperasi Simpan Pinjam</h2>
+                                </div>
 
-                                    <p> </p>
-                                    <div class="footer-icons">
-                                        <ul>
-                                            <li>
-                                                <a href="https://facebook.com/"><i class="fa fa-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="https://instagram.com/"><i class="fa fa-instagram"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <p> </p>
+                                <div class="footer-icons">
+                                    <ul>
+                                        <li>
+                                            <a href="https://facebook.com/"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://instagram.com/"><i class="fa fa-instagram"></i></a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- end single footer -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="footer-content">
-                                <div class="footer-head" align="right">
-                                    <h4>information</h4>
-                                    <p>
-                                        Hubungi kami untuk layanan lebih lanjut
-                                    </p>
-                                    <div class="footer-contacts">
-                                        <p><span>Tel:</span> (0333) 846328</p>
-                                        <p><span>Email:</span> kspmakmur@gmail.com</p>
-                                        <p><span>Hari Kerja:</span> (Senin - Sabtu)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                </div>
-            </div>
-            <div class="footer-area-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="copyright text-center">
+                    <!-- end single footer -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="footer-content">
+                            <div class="footer-head" align="right">
+                                <h4>information</h4>
                                 <p>
-                                    &copy; Copyright <strong>KSP Makmur</strong>
+                                    Hubungi kami untuk layanan lebih lanjut
                                 </p>
+                                <div class="footer-contacts">
+                                    <p><span>Tel:</span> (0333) 846328</p>
+                                    <p><span>Email:</span> kspmakmur@gmail.com</p>
+                                    <p><span>Hari Kerja:</span> (Senin - Sabtu)</p>
+                                </div>
                             </div>
-
                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="copyright text-center">
+                            <p>
+                                &copy; Copyright <strong>KSP Makmur</strong>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
 
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-        <!-- JavaScript Libraries -->
-        <script src="{{ asset('publiclanding/lib/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/venobox/venobox.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/knob/jquery.knob.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/wow/wow.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/parallax/parallax.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/easing/easing.min.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/nivo-slider/js/jquery.nivo.slider.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('publiclanding/lib/appear/jquery.appear.js') }}"></script>
-        <script src="{{ asset('publiclanding/lib/isotope/isotope.pkgd.min.js') }}"></script>
+    <!-- JavaScript Libraries -->
+    <script src="{{ asset('publiclanding/lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/venobox/venobox.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/knob/jquery.knob.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/parallax/parallax.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/nivo-slider/js/jquery.nivo.slider.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('publiclanding/lib/appear/jquery.appear.js') }}"></script>
+    <script src="{{ asset('publiclanding/lib/isotope/isotope.pkgd.min.js') }}"></script>
 
-        <!-- Contact Form JavaScript File -->
-        <script src="{{ asset('publiclanding/contactform/contactform.js') }}"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="{{ asset('publiclanding/contactform/contactform.js') }}"></script>
 
-        <script src="{{ asset('publiclanding/js/main.js') }}"></script>
+    <script src="{{ asset('publiclanding/js/main.js') }}"></script>
 
 </body>
 
