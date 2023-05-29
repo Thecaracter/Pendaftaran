@@ -49,7 +49,8 @@
 <body>
     <div class="container">
         <div class="card">
-            <h3 class="card-title mb-4">Silahkan siapkan alat pembayaran untuk melakukan pembayaran</h3>
+            <h3 class="card-title mb-4">Silahkan siapkan alat pembayaran untuk melakukan pembayaran Dan ScreenShoot jika
+                menggunakan QRIS</h3>
             <img src="https://img.freepik.com/free-vector/hand-holding-phone-with-credit-card-screen-man-making-purchase-shopping-paying-online-using-banking-app-flat-vector-illustration-transaction-e-commerce-concept_74855-26014.jpg?t=st=1685302049~exp=1685302649~hmac=5b65996f49cb3fcd2bee2847325d9bdd19037a071b03d96eb05c0eddd70ae2b9"
                 alt="Payment Icon" class="mb-4">
             <button id="pay-button" class="btn-pay btn-block">Bayar Sekarang</button>
@@ -70,8 +71,6 @@
         payButton.addEventListener("click", function() {
             window.snap.pay("{{ $paymentToken }}", {
                 onSuccess: function(result) {
-                    alert("Payment success!");
-
                     // Submit the form for updatePayment
                     var form = document.getElementById("update-payment-form");
                     form.submit();

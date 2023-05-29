@@ -160,11 +160,11 @@
                                 <!-- layer 1 -->
                                 <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s"
                                     data-wow-delay=".2s">
-                                    <h1 class="title1">Koperasi Simpan Pinjam </h1>
+                                    <h1 class="title1">比赛 </h1>
                                 </div>
                                 <!-- layer 2 -->
                                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                    <h1 class="title2">Makmur</h1>
+                                    <h1 class="title2">(Perlombaan)</h1>
                                 </div>
                                 <!-- layer 3 -->
                                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s"
@@ -187,11 +187,11 @@
                                 <!-- layer 1 -->
                                 <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s"
                                     data-wow-delay=".2s">
-                                    <h1 class="title1">Koperasi Simpan Pinjam </h1>
+                                    <h1 class="title1">比赛 </h1>
                                 </div>
                                 <!-- layer 2 -->
                                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                    <h1 class="title2">Makmur</h1>
+                                    <h1 class="title2">(Perlombaan)</h1>
                                 </div>
                                 <!-- layer 3 -->
                                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s"
@@ -229,39 +229,29 @@
                             </a>
                             <p>
                                 Kami adalah tim yang berdedikasi dalam pengadaan lomba. Dengan visi untuk mempromosikan
-                                bakat dan semangat kompetisi, kami berkomitmen untuk menyelenggarakan acara lomba yang
+                                bakat dan semangat kompetisi, kami berkomitmen menyelenggarakan acara lomba yang
                                 menginspirasi, menghibur, dan memberikan kesempatan bagi individu untuk menampilkan
                                 kemampuan terbaik mereka.
                                 <br><br>
-                                Melalui pengalaman dan keahlian kami, kami mendedikasikan diri untuk menyusun
-                                lomba-lomba yang berkualitas dan beragam, mencakup berbagai bidang seperti olahraga,
-                                seni, teknologi, sains, dan banyak lagi. Kami percaya bahwa lomba dapat menjadi platform
-                                yang membangun karakter, memupuk kerjasama, dan mengasah kemampuan peserta.
+                                Kami mendedikasikan diri menyusun lomba-lomba berkualitas dan beragam di bidang
+                                olahraga, seni, teknologi, sains, dan lainnya. Lomba kami membangun karakter, memupuk
+                                kerjasama, dan mengasah kemampuan peserta.
                                 <br><br>
-                                Kami mengutamakan profesionalisme dalam setiap aspek pengadaan lomba. Mulai dari
-                                perencanaan, pengorganisasian, hingga pelaksanaan, kami memastikan bahwa setiap detail
-                                diatur dengan cermat. Kami bekerja sama dengan para ahli dan profesional di bidangnya
-                                untuk memberikan pengalaman lomba yang tak terlupakan bagi semua peserta.
+                                Kami mengutamakan profesionalisme dalam perencanaan, pengorganisasian, dan pelaksanaan
+                                lomba. Bekerja dengan ahli dan profesional untuk pengalaman lomba tak terlupakan bagi
+                                semua peserta.
                                 <br><br>
-                                Selain itu, kami juga menjunjung tinggi integritas dan transparansi. Kami mengedepankan
-                                aturan yang adil, evaluasi objektif, dan penghargaan yang setimpal bagi para pemenang.
-                                Kami yakin bahwa kejujuran dan fair play adalah landasan penting dalam setiap kompetisi
-                                yang kami selenggarakan.
+                                Kami menjunjung tinggi integritas dan transparansi dengan aturan yang adil, evaluasi
+                                objektif, dan penghargaan setimpal. Kejujuran dan fair play adalah landasan dalam setiap
+                                kompetisi kami.
                                 <br><br>
-                                Kami mengundang semua individu yang berbakat dan bersemangat untuk bergabung dalam
-                                lomba-lomba kami. Kami berkomitmen untuk menciptakan lingkungan yang inklusif dan
-                                memberikan kesempatan yang setara bagi semua peserta. Setiap lomba yang kami
-                                selenggarakan adalah kesempatan untuk berbagi inspirasi, mengembangkan potensi diri, dan
-                                menjalin hubungan sosial yang berharga.
+                                Kami undang individu berbakat dan bersemangat untuk bergabung. Lingkungan inklusif dan
+                                kesempatan setara bagi semua peserta. Lomba kami adalah kesempatan berbagi inspirasi,
+                                mengembangkan diri, dan menjalin hubungan sosial.
                                 <br><br>
-                                Kami bangga menjadi bagian dari perjalanan peserta dalam mencapai kesuksesan dan
-                                mempertahankan semangat kompetisi. Bersama-sama, mari kita hadapi tantangan, berinovasi,
-                                dan meraih prestasi yang luar biasa dalam setiap lomba yang kami adakan.
-                                <br><br>
-                                Bergabunglah dengan kami dan saksikan bagaimana lomba kami menjadi panggung yang
-                                memunculkan bakat, menjalin persahabatan, dan mengilhami pertumbuhan individu.
+                                Bersama kami, hadapi tantangan, berinovasi, dan raih prestasi luar biasa dalam setiap
+                                lomba. Bergabunglah dan saksikan panggung bakat, persahabatan, dan pertumbuhan individu.
                             </p>
-
                             <ul>
                                 <li>
                                     <i> </i>
