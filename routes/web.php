@@ -70,27 +70,27 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 // Dashboard route
-Route::middleware('isLogin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-    // Pendaftaran route
-    Route::prefix('pendaftaran')->group(function () {
-        Route::get('/', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index');
-        Route::post('/', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create');
-        Route::post('/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update');
-        Route::delete('/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
-        Route::get('/cetak-pendaftaran/{id}', [CetakPendaftaranController::class, 'generateCetakPendaftaran'])->name('cetak-pendaftaran.generate');
-    });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// Pendaftaran route
+Route::prefix('pendaftaran')->group(function () {
+    Route::get('/', [PendaftaranUserController::class, 'index'])->name('pendaftaranuser.index');
+    Route::post('/', [PendaftaranUserController::class, 'store'])->name('pendaftaranuser.create');
+    Route::post('/{id}', [PendaftaranUserController::class, 'update'])->name('pendaftaranuser.update');
+    Route::delete('/{id}', [PendaftaranUserController::class, 'destroy'])->name('pendaftaranuser.destroy');
+    Route::get('/cetak-pendaftaran/{id}', [CetakPendaftaranController::class, 'generateCetakPendaftaran'])->name('cetak-pendaftaran.generate');
 });
+
 
 // Profile route
-Route::middleware('isLogin')->group(function () {
-    Route::get('/profile', function () {
-        return view('profile.profile');
-    });
 
-    Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+Route::get('/profile', function () {
+    return view('profile.profile');
 });
+
+Route::post('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
+
 
 
 // Forgot Password route
