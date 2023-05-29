@@ -133,11 +133,11 @@
                                 <!-- layer 1 -->
                                 <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s"
                                     data-wow-delay=".2s">
-                                    <h1 class="title1">Koperasi Simpan Pinjam</h1>
+                                    <h1 class="title1">比赛</h1>
                                 </div>
                                 <!-- layer 2 -->
                                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                    <h1 class="title2">Makmur</h1>
+                                    <h1 class="title2">(Perlombaan)</h1>
                                 </div>
                                 <!-- layer 3 -->
                                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s"
