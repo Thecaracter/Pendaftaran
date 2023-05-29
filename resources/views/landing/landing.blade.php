@@ -686,22 +686,19 @@
                                 <div class="single-testi">
                                     <div class="testi-text">
                                         <p>
-                                            Apapun yang kita lakukan dalam kehidupan ini adalah perlombaan dalam
-                                            <br>kebaikan. Bukan perlombaan keunggulan satu sama lain.
+                                            Ketekunan juga merupakan kunci keberhasilan dalam segala upaya, tetapi tanpa
+                                            <br>ketekunan dalam pertempuran, tidak akan ada kemenangan.
                                         </p>
-                                        <h6>-Emha Ainun Nadjib-</h6>
+                                        <h6>-Jocko Willink-</h6>
                                     </div>
                                 </div>
                                 <!-- End single item -->
                                 <div class="single-testi">
                                     <div class="testi-text">
                                         <p>
-                                            Koperasi simpan pinjam menawarkan pinjaman dengan syarat yang mudah dan
-                                            bunga yang sangat ringan bagi anggotanya.
-                                            <br>Dengan kondisi seperti ini, maka para anggota yang hanya memiliki usaha
-                                            kecil-kecilan tidak akan merasa dipersulit.
+                                            Kemenangan selalu mungkin bagi orang yang menolak untuk berhenti berjuang.
                                         </p>
-                                        <h6>-Surya-</h6>
+                                        <h6>-Napoleon Hill-</h6>
                                     </div>
                                 </div>
                                 <!-- End single item -->
