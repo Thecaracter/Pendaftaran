@@ -42,7 +42,7 @@
                                         <p>{{ session('success') }}</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="/" class="btn btn-primary">Login</a>
+                                        <a href="/masuk" class="btn btn-primary">Login</a>
                                     </div>
                                 </div>
                             </div>

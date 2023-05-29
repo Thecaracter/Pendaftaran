@@ -4,7 +4,7 @@
             <div class="sidebar-brand">
                 <a href="/dashboard"> <img alt="image" src="{{ asset('admin/assets/img/logo.png') }}"
                         class="header-logo" />
-                    <span class="logo-name">Rizqi</span>
+                    <span class="logo-name">比赛</span>
                 </a>
             </div>
             <ul class="sidebar-menu">
@@ -35,7 +35,7 @@
             <div class="sidebar-brand">
                 <a href="/dashboard"> <img alt="image" src="{{ asset('admin/assets/img/logo.png') }}"
                         class="header-logo" />
-                    <span class="logo-name">Rizqi</span>
+                    <span class="logo-name">比赛</span>
                 </a>
             </div>
             <ul class="sidebar-menu">

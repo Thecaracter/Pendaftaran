@@ -4,6 +4,7 @@ use App\Http\Controllers\CetakPendaftaranController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPendaftaranController;
 use App\Http\Controllers\ForgotPassword;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\PaymentController;
@@ -24,12 +25,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [LandingPageController::class, 'index'])->name('landing.index');
+
 //login route
-Route::get('/', function () {
+Route::get('/masuk', function () {
     return view('auth.login');
 });
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/', [LoginController::class, 'login']);
+Route::get('/masuk', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/masuk', [LoginController::class, 'login']);
 
 // register route
 Route::get('/register', function () {
