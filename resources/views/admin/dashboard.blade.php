@@ -143,84 +143,84 @@
             @endforeach
         </div>
     </div>
-    <-- modal detail -->
-        @foreach ($lombas as $lomba)
-            <div class="modal fade" id="modal{{ $lomba->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="modal{{ $lomba->id }}Label" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal{{ $lomba->id }}Label">{{ $lomba->nama }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+    <!-- modal detail -->
+    @foreach ($lombas as $lomba)
+        <div class="modal fade" id="modal{{ $lomba->id }}" tabindex="-1" role="dialog"
+            aria-labelledby="modal{{ $lomba->id }}Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal{{ $lomba->id }}Label">{{ $lomba->nama }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img src="{{ $lomba->foto }}" alt="Foto Lomba" class="img-fluid rounded mb-3"
+                                style="object-fit: cover; max-height: 200px;">
                         </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <img src="{{ $lomba->foto }}" alt="Foto Lomba" class="img-fluid rounded mb-3"
-                                    style="object-fit: cover; max-height: 200px;">
-                            </div>
-                            <h6>Tanggal Mulai</h6>
-                            <p>{{ $lomba->tanggal_mulai }}</p>
-                            <h6>Tanggal Selesai</h6>
-                            <p>{{ $lomba->tanggal_selesai }}</p>
-                            <h6>Deskripsi</h6>
-                            <p>{{ $lomba->deskripsi }}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                        <h6>Tanggal Mulai</h6>
+                        <p>{{ $lomba->tanggal_mulai }}</p>
+                        <h6>Tanggal Selesai</h6>
+                        <p>{{ $lomba->tanggal_selesai }}</p>
+                        <h6>Deskripsi</h6>
+                        <p>{{ $lomba->deskripsi }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        @endforeach
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            var barChartCtx = document.getElementById('barChart').getContext('2d');
-            var barChart = new Chart(barChartCtx, {
-                type: 'bar',
-                data: {
-                    labels: {!! json_encode($bulanLabels) !!},
-                    datasets: [{
-                        label: 'Pendaftaran',
-                        data: {!! json_encode($pendaftaranDataArray) !!},
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            precision: 0
-                        }
+        </div>
+    @endforeach
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var barChartCtx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(barChartCtx, {
+            type: 'bar',
+            data: {
+                labels: {!! json_encode($bulanLabels) !!},
+                datasets: [{
+                    label: 'Pendaftaran',
+                    data: {!! json_encode($pendaftaranDataArray) !!},
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
                     }
                 }
-            });
+            }
+        });
 
-            var lineChartCtx = document.getElementById('lineChart').getContext('2d');
-            var lineChart = new Chart(lineChartCtx, {
-                type: 'line',
-                data: {
-                    labels: {!! json_encode($bulanLabels) !!},
-                    datasets: [{
-                        label: 'Pendaftaran',
-                        data: {!! json_encode($pendaftaranDataArray) !!},
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1,
-                        fill: false
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            precision: 0
-                        }
+        var lineChartCtx = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(lineChartCtx, {
+            type: 'line',
+            data: {
+                labels: {!! json_encode($bulanLabels) !!},
+                datasets: [{
+                    label: 'Pendaftaran',
+                    data: {!! json_encode($pendaftaranDataArray) !!},
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
                     }
                 }
-            });
-        </script>
-    @endsection
+            }
+        });
+    </script>
+@endsection
