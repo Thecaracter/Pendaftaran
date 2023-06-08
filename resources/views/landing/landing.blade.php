@@ -71,7 +71,7 @@
                                 <!-- Brand -->
                                 <a class="navbar-brand page-scroll sticky-logo" href="index.html">
                                     <!--<img src="img/logo_koperasi.png" width="30px" height="30px" >-->
-                                    <h1><span>比赛</span> (Perlombaan1)</h1>
+                                    <h1><span>比赛</span> (Perlombaan)</h1>
                                     <!-- Uncomment below if you prefer to use an image logo -->
                                     <!-- <img src="img/logo.png" alt="" title=""> -->
                                 </a>
