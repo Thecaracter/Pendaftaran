@@ -82,9 +82,11 @@
                                                 <td class="text-center">{{ $pen->tanggal_pendaftaran }}</td>
                                                 <td class="align-middle text-center">
                                                     <span>
-                                                        <button data-toggle="modal"
-                                                            data-target="#editPendaftaranModal{{ $pen->id }}"
-                                                            type="button" class="btn btn-info">Edit</button>
+                                                        @if ($pen->status_pembayaran == '1')
+                                                            <button data-toggle="modal"
+                                                                data-target="#editPendaftaranModal{{ $pen->id }}"
+                                                                type="button" class="btn btn-info">Edit</button>
+                                                        @endif
                                                         <form id="deleteForm-{{ $pen->id }}" method="post"
                                                             action="{{ route('pendaftaranuser.destroy', $pen->id) }}"
                                                             style="display:inline">
